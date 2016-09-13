@@ -13,17 +13,17 @@
 @property (nonatomic) int rating;
 @property (nonatomic) NSMutableArray *ratingButtons;
 
+
 @end
 
 @implementation RatingControl
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+#pragma mark Constants
+static const int SPACING = 5.0;
+static const int STAR_COUNT = 5;
+
+#pragma mark Implementation methods
+
 - (NSArray *)ratingButtons{
     if (!_ratingButtons) _ratingButtons = [NSMutableArray new];
     return _ratingButtons;
@@ -32,27 +32,32 @@
 - (instancetype)initWithCoder:(NSCoder *) aDecoder {
     self = [super initWithCoder:aDecoder];
    
-    for (int i = 0; i < 5; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 44.0, 44.0)];
+    for (int i = 0; i < STAR_COUNT; i++) {
+        UIButton *button = [UIButton new];
         button.backgroundColor = [UIColor redColor];
-        [self addSubview:button];
-        [self.ratingButtons addObject:button];
         [button addTarget:self  action:@selector(ratingButtonTapped:) forControlEvents:UIControlEventTouchDown];
+        [self.ratingButtons addObject:button];
+        [self addSubview:button];
     }
     return self;
 }
 
 - (void)layoutSubviews {
+    // Set the button's width and height to a square the size of the frame's height.
+    CGFloat buttonSize = self.frame.size.height;
+    __block CGRect frame = CGRectMake(0.0, 0.0, buttonSize, buttonSize);
+    
     // Offset each button's origin by the length of the button plus spacing.
-    __block CGRect frame = CGRectMake(0.0, 0.0, 44.0, 44.0);
     [self.ratingButtons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
-        frame.origin.x = idx * (44.0 + 5.0);
+        frame.origin.x = idx * (buttonSize + SPACING);
         button.frame = frame;
     }];
 }
 
 - (CGSize)intrinsicContentSize {
-    return CGSizeMake(240.0, 44.0);
+    CGFloat buttonSize = self.frame.size.height;
+    CGFloat width = (buttonSize * STAR_COUNT) + (SPACING * (STAR_COUNT - 1));
+    return CGSizeMake(width, buttonSize);
 }
 
 #pragma mark Button Action
