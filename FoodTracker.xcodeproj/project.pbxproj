@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CB0226F1D88A44200434559 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0226E1D88A44200434559 /* Meal.m */; };
+		5CB022701D88A44200434559 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0226E1D88A44200434559 /* Meal.m */; };
 		EA22BCA51D870D0F004666BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA22BCA41D870D0F004666BA /* main.m */; };
 		EA22BCA81D870D0F004666BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA22BCA71D870D0F004666BA /* AppDelegate.m */; };
 		EA22BCAB1D870D0F004666BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA22BCAA1D870D0F004666BA /* ViewController.m */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5CB0226E1D88A44200434559 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
+		5CB022711D88A4EA00434559 /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
 		EA22BCA01D870D0F004666BA /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA22BCA41D870D0F004666BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EA22BCA61D870D0F004666BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				EA22BCAA1D870D0F004666BA /* ViewController.m */,
 				EA22BCC81D8787AF004666BA /* RatingControl.h */,
 				EA22BCC91D8787AF004666BA /* RatingControl.m */,
+				5CB0226E1D88A44200434559 /* Meal.m */,
+				5CB022711D88A4EA00434559 /* Meal.h */,
 				EA22BCAC1D870D10004666BA /* Main.storyboard */,
 				EA22BCAF1D870D10004666BA /* Assets.xcassets */,
 				EA22BCB11D870D10004666BA /* LaunchScreen.storyboard */,
@@ -217,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CB0226F1D88A44200434559 /* Meal.m in Sources */,
 				EA22BCCA1D8787AF004666BA /* RatingControl.m in Sources */,
 				EA22BCAB1D870D0F004666BA /* ViewController.m in Sources */,
 				EA22BCA81D870D0F004666BA /* AppDelegate.m in Sources */,
@@ -228,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CB022701D88A44200434559 /* Meal.m in Sources */,
 				EA22BCBE1D870D10004666BA /* FoodTrackerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +425,7 @@
 				EA22BCC41D870D10004666BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA22BCC51D870D10004666BA /* Build configuration list for PBXNativeTarget "FoodTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +434,7 @@
 				EA22BCC71D870D10004666BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
