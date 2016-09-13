@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "RatingControl.h"
 
 @interface ViewController ()
 
@@ -14,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *mealNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (weak, nonatomic) IBOutlet RatingControl *ratingControl;
 
 @end
 
@@ -46,11 +48,6 @@
 }
 
 # pragma mark Actions
-
-- (IBAction)setDefaultLabelText:(UIButton *)sender
-{
-    self.mealNameLabel.text = @"Default text";
-}
 
 - (IBAction)selectImageFromPhotoLibrary:(UITapGestureRecognizer *)sender
 {
