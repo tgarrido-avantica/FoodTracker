@@ -14,6 +14,7 @@
 		EA22BCB01D870D10004666BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA22BCAF1D870D10004666BA /* Assets.xcassets */; };
 		EA22BCB31D870D10004666BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA22BCB11D870D10004666BA /* LaunchScreen.storyboard */; };
 		EA22BCBE1D870D10004666BA /* FoodTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA22BCBD1D870D10004666BA /* FoodTrackerTests.m */; };
+		EA22BCCA1D8787AF004666BA /* RatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EA22BCC91D8787AF004666BA /* RatingControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		EA22BCB91D870D10004666BA /* FoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA22BCBD1D870D10004666BA /* FoodTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodTrackerTests.m; sourceTree = "<group>"; };
 		EA22BCBF1D870D10004666BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA22BCC81D8787AF004666BA /* RatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingControl.h; sourceTree = "<group>"; };
+		EA22BCC91D8787AF004666BA /* RatingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				EA22BCA71D870D0F004666BA /* AppDelegate.m */,
 				EA22BCA91D870D0F004666BA /* ViewController.h */,
 				EA22BCAA1D870D0F004666BA /* ViewController.m */,
+				EA22BCC81D8787AF004666BA /* RatingControl.h */,
+				EA22BCC91D8787AF004666BA /* RatingControl.m */,
 				EA22BCAC1D870D10004666BA /* Main.storyboard */,
 				EA22BCAF1D870D10004666BA /* Assets.xcassets */,
 				EA22BCB11D870D10004666BA /* LaunchScreen.storyboard */,
@@ -212,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA22BCCA1D8787AF004666BA /* RatingControl.m in Sources */,
 				EA22BCAB1D870D0F004666BA /* ViewController.m in Sources */,
 				EA22BCA81D870D0F004666BA /* AppDelegate.m in Sources */,
 				EA22BCA51D870D0F004666BA /* main.m in Sources */,
