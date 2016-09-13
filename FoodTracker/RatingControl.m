@@ -44,12 +44,11 @@
 
 - (void)layoutSubviews {
     // Offset each button's origin by the length of the button plus spacing.
+    __block CGRect frame = CGRectMake(0.0, 0.0, 44.0, 44.0);
     [self.ratingButtons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
-        button.frame = CGRectMake(idx * (44.0 + 5.0), button.frame.origin.y,
-                                  button.frame.size.height, button.frame.size.width);
+        frame.origin.x = idx * (44.0 + 5.0);
+        button.frame = frame;
     }];
-     
-    
 }
 
 - (CGSize)intrinsicContentSize {
