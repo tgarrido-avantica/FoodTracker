@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RatingControl : UIView
-
+@property (nonatomic) NSUInteger rating;
 
 @end

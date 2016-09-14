@@ -11,7 +11,6 @@
 @interface RatingControl ()
 
 #pragma mark Properties
-@property (nonatomic) NSUInteger rating;
 @property (nonatomic) NSMutableArray *ratingButtons;
 
 @end

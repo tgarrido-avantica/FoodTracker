@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MealViewController.h
 //  FoodTracker
 //
 //  Created by Tomás Garrido Sandino on 12/9/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface MealViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 
 @end

@@ -1,25 +1,24 @@
 //
-//  ViewController.m
+//  MealViewController.m
 //  FoodTracker
 //
 //  Created by Tomás Garrido Sandino on 12/9/16.
 //  Copyright © 2016 Avantica Technologies. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MealViewController.h"
 #import "RatingControl.h"
 
-@interface ViewController ()
+@interface MealViewController ()
 
-# pragma mark Properties
+#pragma mark Properties
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UILabel *mealNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (weak, nonatomic) IBOutlet RatingControl *ratingControl;
 
 @end
 
-@implementation ViewController
+@implementation MealViewController
 
 - (void)viewDidLoad
 {
@@ -33,7 +32,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-# pragma mark UITExtFieldDelegate
+#pragma mark UITExtFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -44,10 +43,10 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    self.mealNameLabel.text = textField.text;
+    
 }
 
-# pragma mark Actions
+#pragma mark Actions
 
 - (IBAction)selectImageFromPhotoLibrary:(UITapGestureRecognizer *)sender
 {
@@ -65,7 +64,7 @@
     [self presentViewController:imagePickerController animated:YES completion:nil];
 }
 
-# pragma mark UIImagePickerControllerDelegate
+#pragma mark UIImagePickerControllerDelegate
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     // Dismiss the picker if the user canceled.
     [self dismissViewControllerAnimated:YES completion: nil];
