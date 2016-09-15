@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Meal.h"
 
 @interface MealViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (nonatomic) Meal *meal;
 
 @end
 

@@ -9,6 +9,7 @@
 #import "MealTableViewController.h"
 #import "Meal.h"
 #import "MealTableViewCell.h"
+#import "MealViewController.h"
 
 @interface MealTableViewController ()
 
@@ -110,5 +111,15 @@
     UIImage *photo3 = [UIImage imageNamed:@"meal3"];
     Meal *meal3 = [[Meal alloc] init:@"Pasta with Meatballs" photo:photo3 rating:3];
     self.meals = [NSMutableArray arrayWithObjects:meal1, meal2, meal3, nil];
+}
+
+- (IBAction)unwindToMealList:(UIStoryboardSegue *)sender {
+    if ([sender.sourceViewController isMemberOfClass:MealViewController.class]) {
+        Meal *meal = ((MealViewController *)(sender.sourceViewController)).meal;
+        // Add a new meal.
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.meals.count  inSection:0];
+        [self.meals addObject:meal];
+        [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
+    }
 }
 @end

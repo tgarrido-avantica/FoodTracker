@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (weak, nonatomic) IBOutlet RatingControl *ratingControl;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 @end
 
@@ -44,6 +45,19 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     
+}
+
+#pragma mark Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if (self.saveButton == sender) {
+        NSString *name = self.nameTextField.text ? self.nameTextField.text : @"";
+        UIImage *photo = self.photoImageView.image;
+        NSInteger rating = self.ratingControl.rating;
+        
+        // Set the meal to be passed to MealTableViewController after the unwind segue.
+        self.meal = [[Meal alloc] init:name photo:photo rating:rating];
+
+    }
 }
 
 #pragma mark Actions

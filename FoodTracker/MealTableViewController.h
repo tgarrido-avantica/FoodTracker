@@ -10,5 +10,4 @@
 
 @interface MealTableViewController : UITableViewController
 
-
 @end
