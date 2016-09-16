@@ -19,6 +19,7 @@
 		EA22BCCA1D8787AF004666BA /* RatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EA22BCC91D8787AF004666BA /* RatingControl.m */; };
 		EAADA2171D89C83400B2FC34 /* MealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADA2161D89C83400B2FC34 /* MealTableViewCell.m */; };
 		EAADA21A1D89E72300B2FC34 /* MealTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADA2191D89E72300B2FC34 /* MealTableViewController.m */; };
+		EAF4C4A41D8C96CC00F3CFB1 /* NSString+NSStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF4C4A31D8C96CC00F3CFB1 /* NSString+NSStringUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		EAADA2161D89C83400B2FC34 /* MealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewCell.m; sourceTree = "<group>"; };
 		EAADA2181D89E72300B2FC34 /* MealTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealTableViewController.h; sourceTree = "<group>"; };
 		EAADA2191D89E72300B2FC34 /* MealTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewController.m; sourceTree = "<group>"; };
+		EAF4C4A01D8C954A00F3CFB1 /* NSString+NSStringUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSString+NSStringUtilities.h"; path = "Categories/NSString+NSStringUtilities.h"; sourceTree = "<group>"; };
+		EAF4C4A31D8C96CC00F3CFB1 /* NSString+NSStringUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NSStringUtilities.m"; path = "Categories/NSString+NSStringUtilities.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 		EA22BCA21D870D0F004666BA /* FoodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				EAF4C4A11D8C965100F3CFB1 /* Categories */,
 				EA22BCA61D870D0F004666BA /* AppDelegate.h */,
 				EA22BCA71D870D0F004666BA /* AppDelegate.m */,
 				EA22BCA91D870D0F004666BA /* MealViewController.h */,
@@ -130,6 +134,15 @@
 				EA22BCBF1D870D10004666BA /* Info.plist */,
 			);
 			path = FoodTrackerTests;
+			sourceTree = "<group>";
+		};
+		EAF4C4A11D8C965100F3CFB1 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				EAF4C4A01D8C954A00F3CFB1 /* NSString+NSStringUtilities.h */,
+				EAF4C4A31D8C96CC00F3CFB1 /* NSString+NSStringUtilities.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +250,7 @@
 				EAADA2171D89C83400B2FC34 /* MealTableViewCell.m in Sources */,
 				5CB0226F1D88A44200434559 /* Meal.m in Sources */,
 				EA22BCCA1D8787AF004666BA /* RatingControl.m in Sources */,
+				EAF4C4A41D8C96CC00F3CFB1 /* NSString+NSStringUtilities.m in Sources */,
 				EA22BCAB1D870D0F004666BA /* MealViewController.m in Sources */,
 				EA22BCA81D870D0F004666BA /* AppDelegate.m in Sources */,
 				EA22BCA51D870D0F004666BA /* main.m in Sources */,

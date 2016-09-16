@@ -117,7 +117,7 @@
     if ([sender.sourceViewController isMemberOfClass:MealViewController.class]) {
         Meal *meal = ((MealViewController *)(sender.sourceViewController)).meal;
         // Add a new meal.
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.meals.count  inSection:0];
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.meals.count inSection:0];
         [self.meals addObject:meal];
         [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
     }

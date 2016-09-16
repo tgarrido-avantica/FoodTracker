@@ -8,6 +8,7 @@
 
 #import "MealViewController.h"
 #import "RatingControl.h"
+#import "NSString+NSStringUtilities.h"
 
 @interface MealViewController ()
 
@@ -24,7 +25,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Handle the text field’s user input through delegate callbacks.
     self.nameTextField.delegate = self;
+    
+    // Enable the Save button only if the text field has a valid Meal name.
+    [self checkValidMealName];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,7 +50,18 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
+    [self checkValidMealName];
+    self.navigationItem.title = textField.text;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    // Disable the Save button while editing.
+    self.saveButton.enabled = false;
+}
+
+- (void) checkValidMealName {
+    NSString * text = [NSString stringByNilCoalesce:self.nameTextField.text];
+    self.saveButton.enabled = ![text isBlank];
 }
 
 #pragma mark Navigation
