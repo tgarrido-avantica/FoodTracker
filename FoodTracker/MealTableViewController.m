@@ -91,15 +91,24 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqual: @"ShowDetail"]) {
+        MealViewController *mealDetailViewController = (MealViewController *)segue.destinationViewController;
+        if ([sender isMemberOfClass:[MealTableViewCell class]]) {
+            MealTableViewCell *selectedMealCell = (MealTableViewCell *)sender;
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:selectedMealCell];
+            Meal *selectedMeal = self.meals[indexPath.row];
+            mealDetailViewController.meal = selectedMeal;
+        }
+    }
+    else if ([segue.identifier isEqual:@"AddItem"]) {
+        NSLog(@"Adding new meal.");
+    }
 }
-*/
+
 
 - (void)loadSampleMeals {
     UIImage *photo1 = [UIImage imageNamed:@"meal1"];
@@ -116,10 +125,18 @@
 - (IBAction)unwindToMealList:(UIStoryboardSegue *)sender {
     if ([sender.sourceViewController isMemberOfClass:MealViewController.class]) {
         Meal *meal = ((MealViewController *)(sender.sourceViewController)).meal;
-        // Add a new meal.
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.meals.count inSection:0];
-        [self.meals addObject:meal];
-        [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
+        NSIndexPath *selectedIndexPath;
+        if ((selectedIndexPath = [self.tableView indexPathForSelectedRow])) {
+            // Update an existing meal.
+            self.meals[selectedIndexPath.row] = meal;
+            [self.tableView reloadRowsAtIndexPaths:@[selectedIndexPath] withRowAnimation: UITableViewRowAnimationNone];
+        }
+        else {
+            // Add a new meal.
+            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.meals.count inSection:0];
+            [self.meals addObject:meal];
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
+        }
     }
 }
 @end

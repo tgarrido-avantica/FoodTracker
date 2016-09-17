@@ -29,6 +29,15 @@
     // Handle the text field’s user input through delegate callbacks.
     self.nameTextField.delegate = self;
     
+    // Set up views if editing an existing Meal.
+    Meal *meal = self.meal;
+    if (meal) {
+        self.navigationItem.title = meal.name;
+        self.nameTextField.text   = meal.name;
+        self.photoImageView.image = meal.photo;
+        self.ratingControl.rating = meal.rating;
+    }
+    
     // Enable the Save button only if the text field has a valid Meal name.
     [self checkValidMealName];
 }
@@ -65,6 +74,18 @@
 }
 
 #pragma mark Navigation
+
+- (IBAction)cancel:(UIBarButtonItem *)sender {
+    // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+    BOOL isPresentingInAddMealMode = [self.presentingViewController isKindOfClass:UINavigationController.class];
+    if (isPresentingInAddMealMode) {
+        [self dismissViewControllerAnimated:true completion: nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if (self.saveButton == sender) {
         NSString *name = self.nameTextField.text ? self.nameTextField.text : @"";
