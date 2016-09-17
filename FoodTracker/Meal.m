@@ -7,7 +7,7 @@
 //
 
 #import "Meal.h"
-static NSDictionary  *propertyKey;
+static NSDictionary  *_propertyKey = nil;
 
 @interface Meal()
 
@@ -17,8 +17,8 @@ static NSDictionary  *propertyKey;
 @implementation Meal
 
 +(NSDictionary *)propertyKey {
-    if (!propertyKey) propertyKey = @{@"nameKey" : @"name", @"photoKey" : @"photo", @"ratingKey" : @"rating" };
-    return propertyKey;
+    if (!_propertyKey) _propertyKey = @{@"nameKey" : @"name", @"photoKey" : @"photo", @"ratingKey" : @"rating" };
+    return _propertyKey;
 }
 
 
@@ -40,17 +40,17 @@ static NSDictionary  *propertyKey;
 
 #pragma mark NSCoding
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.name  forKey:propertyKey[@"nameKey"]];
-    [aCoder encodeObject:self.photo forKey:propertyKey[@"photoKey"]];
-    [aCoder encodeInteger:self.rating forKey:propertyKey[@"rating"]];
+    [aCoder encodeObject:self.name  forKey:[self.class propertyKey][@"nameKey"]];
+    [aCoder encodeObject:self.photo forKey:[self.class propertyKey][@"photoKey"]];
+    [aCoder encodeInteger:self.rating forKey:[self.class propertyKey][@"rating"]];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aCoder {
-    NSString *name = (NSString *)[aCoder decodeObjectForKey:propertyKey[@"nameKey"]];
-    NSObject *object = [aCoder decodeObjectForKey:propertyKey[@"photoKey"]];
+    NSString *name = (NSString *)[aCoder decodeObjectForKey:[self.class propertyKey][@"nameKey"]];
+    NSObject *object = [aCoder decodeObjectForKey:[self.class propertyKey][@"photoKey"]];
     UIImage *photo;
     if (object)   photo = (UIImage *)object;
-    NSInteger rating = [aCoder decodeIntegerForKey:propertyKey[@"rating"]];
+    NSInteger rating = [aCoder decodeIntegerForKey:[self.class propertyKey][@"rating"]];
     return [self init:name photo:photo rating:rating];
 }
 @end
