@@ -97,15 +97,13 @@
 		EA22BCA21D870D0F004666BA /* FoodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				EAF4C4A61D8CC85B00F3CFB1 /* Models */,
 				EA22BCA61D870D0F004666BA /* AppDelegate.h */,
 				EA22BCA71D870D0F004666BA /* AppDelegate.m */,
 				EA22BCAF1D870D10004666BA /* Assets.xcassets */,
 				EAF4C4A11D8C965100F3CFB1 /* Categories */,
 				EA22BCB41D870D10004666BA /* Info.plist */,
-				EA22BCB11D870D10004666BA /* LaunchScreen.storyboard */,
-				EA22BCAC1D870D10004666BA /* Main.storyboard */,
-				5CB022711D88A4EA00434559 /* Meal.h */,
-				5CB0226E1D88A44200434559 /* Meal.m */,
+				EAF4C4A51D8CC84600F3CFB1 /* Storyboards */,
 				EAADA2151D89C83400B2FC34 /* MealTableViewCell.h */,
 				EAADA2161D89C83400B2FC34 /* MealTableViewCell.m */,
 				EAADA2181D89E72300B2FC34 /* MealTableViewController.h */,
@@ -143,6 +141,24 @@
 				EAF4C4A31D8C96CC00F3CFB1 /* NSString+NSStringUtilities.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		EAF4C4A51D8CC84600F3CFB1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EA22BCB11D870D10004666BA /* LaunchScreen.storyboard */,
+				EA22BCAC1D870D10004666BA /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		EAF4C4A61D8CC85B00F3CFB1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5CB022711D88A4EA00434559 /* Meal.h */,
+				5CB0226E1D88A44200434559 /* Meal.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

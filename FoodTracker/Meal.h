@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Meal : NSObject;
+@interface Meal : NSObject <NSCoding>;
 
 #pragma mark Properties
 @property(nonatomic, nonnull) NSString *name;
