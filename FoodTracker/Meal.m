@@ -9,12 +9,28 @@
 #import "Meal.h"
 static NSDictionary  *_propertyKey = nil;
 
+#pragma mark Archiving Paths
+static NSURL *_documentsDirectory = nil;
+static NSURL *_archiveURL = nil;
+
 @interface Meal()
 
 
 @end
 
 @implementation Meal
+
++ (void)initialize {
+    if (self == [Meal class]) {
+        _documentsDirectory = [[[NSFileManager new] URLsForDirectory:NSDocumentDirectory
+                                                          inDomains:NSUserDomainMask] firstObject];
+        _archiveURL = [_documentsDirectory URLByAppendingPathComponent:@"meals"];
+    }
+}
+
++(NSURL *)archiveURL {
+    return _archiveURL;
+}
 
 +(NSDictionary *)propertyKey {
     if (!_propertyKey) _propertyKey = @{@"nameKey" : @"name", @"photoKey" : @"photo", @"ratingKey" : @"rating" };
@@ -42,15 +58,17 @@ static NSDictionary  *_propertyKey = nil;
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.name  forKey:[self.class propertyKey][@"nameKey"]];
     [aCoder encodeObject:self.photo forKey:[self.class propertyKey][@"photoKey"]];
-    [aCoder encodeInteger:self.rating forKey:[self.class propertyKey][@"rating"]];
+    [aCoder encodeInteger:self.rating forKey:[self.class propertyKey][@"ratingKey"]];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aCoder {
     NSString *name = (NSString *)[aCoder decodeObjectForKey:[self.class propertyKey][@"nameKey"]];
+    // Because photo is an optional property of Meal, use conditional cast.
     NSObject *object = [aCoder decodeObjectForKey:[self.class propertyKey][@"photoKey"]];
     UIImage *photo;
     if (object)   photo = (UIImage *)object;
-    NSInteger rating = [aCoder decodeIntegerForKey:[self.class propertyKey][@"rating"]];
+    NSInteger rating = [aCoder decodeIntegerForKey:[self.class propertyKey][@"ratingKey"]];
     return [self init:name photo:photo rating:rating];
 }
+
 @end

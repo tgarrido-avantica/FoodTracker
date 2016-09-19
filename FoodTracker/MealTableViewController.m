@@ -26,9 +26,15 @@
     // Use the edit button item provided by the table view controller.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
    
+    // Load any saved meals, otherwise load sample data.
+    NSArray *savedMeals = [self loadMeals];
+    if (savedMeals) {
+        self.meals = [NSMutableArray arrayWithArray:savedMeals];
+    } else {
     // Load the sample data
     [self loadSampleMeals];
    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -70,6 +76,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [self.meals removeObjectAtIndex:indexPath.row];
+        [self saveMeals];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -137,6 +144,20 @@
             [self.meals addObject:meal];
             [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
         }
+        // Save the meals.
+        [self saveMeals];
     }
+}
+
+#pragma mark NSCoding
+- (void) saveMeals {
+    BOOL isSuccessfulSave = [NSKeyedArchiver archiveRootObject:self.meals toFile:[[Meal archiveURL] path]];
+    if (!isSuccessfulSave) {
+        NSLog(@"Failed to save meals...");
+    }
+}
+
+-(NSArray *)loadMeals {
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:[[Meal archiveURL] path]];
 }
 @end

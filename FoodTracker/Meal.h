@@ -10,6 +10,8 @@
 
 @interface Meal : NSObject <NSCoding>;
 
++(nonnull NSURL *)archiveURL;
+
 #pragma mark Properties
 @property(nonatomic, nonnull) NSString *name;
 @property(nonatomic, nullable) UIImage *photo;
